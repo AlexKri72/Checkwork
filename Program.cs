@@ -17,13 +17,13 @@ string[] stringOutArray = new string[n];
 
 Console.WriteLine($"Введите любые {n} слов через Enter: ");
 for (int i = 0; i < stringInArray.Length; i++) stringInArray[i] = Console.ReadLine();
-int count = 0;
+int count = 0; // эта переменная нужна чтобы выходной массив заполнялся без пробелов
 for (int i = 0; i < stringInArray.Length; i++)
 {
-    string str = stringInArray[i];
+    string str = stringInArray[i]; // переводим элемент массива в строку, чтобы можно было узнать её длину
     if (str.Length <= 3) 
     {
-        stringOutArray[count] = stringInArray[i];
+        stringOutArray[count] = stringInArray[i]; // если длина меньше или равна трем, запоминаем элемент в выходной массив
         count++;
     }
 }
