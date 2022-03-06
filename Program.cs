@@ -20,13 +20,12 @@ for (int i = 0; i < stringInArray.Length; i++) stringInArray[i] = Console.ReadLi
 int count = 0; // эта переменная нужна чтобы выходной массив заполнялся без пробелов
 for (int i = 0; i < stringInArray.Length; i++)
 {
-    string str = stringInArray[i]; // переводим элемент массива в строку, чтобы можно было узнать её длину
-    if (str.Length <= 3) 
+    if (stringInArray[i].Length <= 3) 
     {
         stringOutArray[count] = stringInArray[i]; // если длина меньше или равна трем, запоминаем элемент в выходной массив
         count++;
     }
 }
 Console.Write("Результат выборки слов : ");
-foreach (var item in stringOutArray) Console.Write($"{item} ");
-Console.WriteLine("\n");
+string str = string.Join(" ", stringOutArray).Trim();
+Console.WriteLine($"{str}\n");
