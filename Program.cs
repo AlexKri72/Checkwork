@@ -12,13 +12,21 @@ Console.Clear();
 
 Console.Write("Сколько слов будем вводить?: ");
 int n = int.Parse(Console.ReadLine());
-string[] stringInArray = new string[n];
-string[] stringOutArray = new string[n];
+
+string[] stringInArray = new string[n];// создаем входящий массив заданной длины
 
 Console.WriteLine($"Введите любые {n} слов через Enter: ");
 for (int i = 0; i < stringInArray.Length; i++) stringInArray[i] = Console.ReadLine();
+
 int count = 0; // эта переменная нужна чтобы выходной массив заполнялся без пробелов
-for (int i = 0; i < stringInArray.Length; i++)
+
+foreach (var item in stringInArray) //считаем сколько слов длиной 3 и менее символов в исходном массиве
+    if (item.Length<=3) count++;
+
+string[] stringOutArray = new string[count]; //создаём выходной массив нужной длины
+
+count=0;
+for (int i = 0; i < stringInArray.Length; i++) //заполняем выходной массив отобранными словами
 {
     if (stringInArray[i].Length <= 3) 
     {
@@ -27,5 +35,5 @@ for (int i = 0; i < stringInArray.Length; i++)
     }
 }
 Console.Write("Результат выборки слов : ");
-string str = string.Join(" ", stringOutArray).Trim();
+string str = string.Join(" ", stringOutArray);
 Console.WriteLine($"{str}\n");
